@@ -4,7 +4,7 @@ import { blog } from "@/data/content";
 
 const ArticlePage = ({ slug }: { slug: string }) => {
   const article =
-    blog.articles?.find((item) => item.slug === slug) ?? articles[0];
+    blog.articles?.find((item) => item.slug === slug) ?? blog.articles[0];
   return (
     <Shell>
       <article className="article-page">
