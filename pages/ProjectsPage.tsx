@@ -3,12 +3,7 @@ import ProjectsList from "@/components/ProjectsList";
 
 const ProjectsPage = () => {
   return (
-    <PageWrapper
-      title={{
-        top: "RECENT",
-        bottom: "PROJECTS",
-      }}
-    >
+    <PageWrapper>
       <ProjectsList />
     </PageWrapper>
   );
