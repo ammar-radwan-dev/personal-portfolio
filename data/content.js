@@ -19,24 +19,24 @@ export const profile = {
     "Frontend Engineer building responsive, high-performance digital products with React, Next.js, and TypeScript.",
   socialMedia: [
     {
-      icon: Globe,
+      icon: "/social/linkedin_icon.svg",
       label: "LinkedIn",
-      url: "#",
+      url: "https://www.linkedin.com/in/ammar-radwan-mohammed/",
     },
     {
-      icon: Send,
-      label: "GitHub",
-      url: "#",
+      icon: "/social/whatsapp_icon.svg",
+      label: "Whatsapp",
+      url: "https://wa.me/971568988967",
     },
     {
-      icon: Camera,
-      label: "Portfolio",
-      url: "#",
+      icon: "/social/telegram_icon.svg",
+      label: "Telegram",
+      url: "https://t.me/ammarradwanmohammed",
     },
     {
-      icon: Mail,
+      icon: "/social/mail_icon.svg",
       label: "Email",
-      url: "#",
+      url: "https://mail.google.com/mail/?view=cm&to=ammarradwan03@gmail.com",
     },
   ],
 };

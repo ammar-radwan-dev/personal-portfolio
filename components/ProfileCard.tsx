@@ -14,9 +14,9 @@ const ProfileCard = () => {
         <div className="arc arc-bottom" />
         <p>{profile.description}</p>
         <div className="socials" aria-label="Social links">
-          {profile.socialMedia?.map(({ icon: Icon, label, url }, index) => (
-            <a key={index} href={url} aria-label={label}>
-              <Icon />
+          {profile.socialMedia?.map(({ icon, label, url }, index) => (
+            <a key={index} href={url} aria-label={label} target="_blank">
+              <img src={icon} alt={label} width={20} />
             </a>
           ))}
         </div>
