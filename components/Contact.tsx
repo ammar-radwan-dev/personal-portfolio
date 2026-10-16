@@ -1,21 +1,26 @@
 "use client";
 
+import { FormEvent } from "react";
 import SplitTitle from "./SplitTitle";
 import { ArrowRight } from "lucide-react";
 
 const Contact = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
-    const form = new FormData(e.currentTarget);
-    const name = form.get("name");
-    const email = form.get("email");
-    const budget = form.get("budget");
-    const message = form.get("message");
+    const form = new FormData(event.currentTarget);
+
+    const name = form.get("name")?.toString() ?? "";
+    const email = form.get("email")?.toString() ?? "";
+    const budget = form.get("budget")?.toString() ?? "";
+    const message = form.get("message")?.toString() ?? "";
 
     const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
+
     const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n${budget ? "Budget: " + budget : ""}\n\n${message}`,
+      `Name: ${name}\nEmail: ${email}\n${
+        budget ? `Budget: ${budget}\n` : ""
+      }\n${message}`,
     );
 
     window.location.href = `mailto:ammarradwan03@gmail.com?subject=${subject}&body=${body}`;
