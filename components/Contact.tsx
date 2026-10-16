@@ -1,26 +1,48 @@
 "use client";
 
-import { FormEvent } from "react";
 import SplitTitle from "./SplitTitle";
 import { ArrowRight } from "lucide-react";
 
 const Contact = () => {
-  const submit = (event: FormEvent) => event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const form = new FormData(e.currentTarget);
+    const name = form.get("name");
+    const email = form.get("email");
+    const budget = form.get("budget");
+    const message = form.get("message");
+
+    const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n${budget ? "Budget: " + budget : ""}\n\n${message}`,
+    );
+
+    window.location.href = `mailto:ammarradwan03@gmail.com?subject=${subject}&body=${body}`;
+  };
+
   return (
     <section className="contact-section">
       <SplitTitle top="LET'S WORK" bottom="TOGETHER" />
-      <form className="contact-form reveal" onSubmit={submit}>
+      <form className="contact-form reveal" onSubmit={handleSubmit}>
         <label>
           Name
-          <input placeholder="Your Name" />
+          <input name="name" placeholder="Your Name" required />
         </label>
         <label>
           Email
-          <input type="email" placeholder="Your@email.com" />
+          <input
+            name="email"
+            type="email"
+            placeholder="Your@email.com"
+            required
+          />
         </label>
         <label>
-          Budget
-          <select defaultValue="">
+          <span>
+            Budget <span style={{ color: "var(--muted)" }}>(Optional)</span>
+          </span>
+          <select name="budget" defaultValue="">
             <option value="" disabled>
               Select…
             </option>
@@ -32,7 +54,7 @@ const Contact = () => {
         </label>
         <label>
           Message
-          <textarea rows={3} />
+          <textarea name="message" rows={3} required />
         </label>
         <button type="submit">
           Submit <ArrowRight size={18} />
